@@ -151,11 +151,10 @@ export function Signup() {
   async function handleSubmit(e) {
     e.preventDefault();
     try {
-      const response = await register({ fullName, email, password });
+      await register({ fullName, email, password });
+      await login({email, password});
       console.log("signing up", { fullName, email, password });
-      if(response.data){
-        navigate("/dashboard");
-      }
+      navigate("/dashboard");
     } catch (err) {
       const message =
         err.response?.data?.message || "Something went wrong. Please try again.";

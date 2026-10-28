@@ -6,6 +6,9 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import { Login, Signup } from "./pages/Auth";
 import ProtectedRoute from './pages/protectedRoute';
 import Dashboard from './pages/dashboard';
+import CreateResource from './pages/createResource';
+import BookingHistory from './pages/bookingHistory';
+import BookingStats from './pages/bookingStats';
 
 
 function App() {
@@ -19,6 +22,9 @@ function App() {
 
         <Route element={<ProtectedRoute />}>
           <Route path='/dashboard' element={<Dashboard />} />
+          <Route path="/createResource" element= {<CreateResource />} />
+          <Route path="/previousbooking" element= {<BookingHistory />} />
+          <Route path="/bookingStats" element= {<BookingStats />} />
         </Route>
       </Routes>
     </>

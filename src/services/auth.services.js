@@ -157,11 +157,23 @@ export async function login({ email, password }) {
   const { data } = await refreshClient.post("/user/login", { email, password });
 
   setTokens({
-    accessToken: data.data.accessToken,
-    refreshToken: data.data.refreshToken,
+    accessToken: data.accessToken,
+    refreshToken: data.refreshToken,
   });
   return data;
 }
+
+
+// export const getCurrentUser = async () => {
+//   try {
+//     const { data } = await api.get(CURRENT_USER_ENDPOINT);
+//     return data.data ?? data;
+//   } catch (error) {
+//     throw new Error(
+//       error.response?.data?.message || error.message || "Could not load profile"
+//     );
+//   }
+// };
 
 export async function register({ fullName, state, city, username, email, password }) {
   // The backend's registerUser does not return tokens, so don't call setTokens here.
